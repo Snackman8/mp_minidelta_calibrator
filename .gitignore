@@ -1,4 +1,13 @@
+.project
+.pydevproject
 *.pyc
 tmp.txt
+calibrator.log*
+output_endstops.txt
+output_endstops_simulated.txt
+bed.csv
+bed_simulated.csv
+tmp/
+
 
 

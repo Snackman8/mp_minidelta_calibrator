@@ -5,6 +5,7 @@ import serial
 import time
 from threading import Thread
 
+DELAY = 0.001
 
 class MiniDeltaSimulator:
     def __init__(self):
@@ -43,7 +44,7 @@ class MiniDeltaSimulator:
 
     def _fwrited(self, s):
         self._fwrite(s + '\n')
-        time.sleep(0.1)
+        time.sleep(DELAY)
 
     def _openpty_nonblocking(self):
         # open the pty
@@ -65,7 +66,6 @@ class MiniDeltaSimulator:
         
         # parse the command
         cmd, _, self._buffer = self._buffer.partition('\n')
-        print '%s' % cmd, self._buffer
         if cmd == 'G00':
             self._fwrited('echo:busy: processing')
             self._fwrited('ok')            
